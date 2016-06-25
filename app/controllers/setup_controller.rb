@@ -20,7 +20,7 @@ class SetupController < ApplicationController
   end
 
   def files
-    docs = Dir.glob(File.join( Rails.root, "docs/README.*" )).collect do |file|
+    Dir.glob(File.join( Rails.root, "docs/README.*" )).collect do |file|
       name = file.gsub( /.*README.\d\d./, "happy_seed:" ).gsub( /.rdoc/, "" )
       html = RDiscount.new( File.read( file ) ).to_html
       { name: name, html: html }

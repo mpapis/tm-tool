@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   def update_from_identity(omni, identity)
     self.identities << identity
     self.email = omni.info.email if email.blank? && omni.info.email
-    #self.name  = omni.info.name  if name.blank?  && omni.info.name
+    self.name  = omni.info.name  if name.blank?  && omni.info.name
     #self.email = identity.email if email.blank? && identity.email
     #self.name  = identity.name  if name.blank?  && identity.name
   end
