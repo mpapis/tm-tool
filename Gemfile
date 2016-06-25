@@ -79,6 +79,7 @@ group :production do
   gem 'pg'
 end
 
+gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'modernizr-rails'
 gem 'meta-tags', require: 'meta_tags'

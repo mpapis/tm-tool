@@ -1,15 +1,15 @@
-- @title = t "devise.invitations.new.header" 
+- @title = t "devise.invitations.new.header"
 .container
   .row
     .center_panel
       .panel.panel-default.only
 
         .panel-heading
-          = t "devise.invitations.new.header" 
+          = t "devise.invitations.new.header"
 
         .panel-body
 
-          = form_for resource, as: resource_name, url: invitation_path(resource_name), layout: :horizontal, html: { method: :post } do |f|
+          = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), layout: :horizontal, html: { method: :post } do |f|
 
             / = devise_error_messages!
 
