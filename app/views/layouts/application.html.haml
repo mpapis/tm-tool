@@ -5,9 +5,10 @@
   %body{ :class => "#{ controller.controller_name }" }
     = render 'chromeframe'
     = render 'header'
-    = render 'flashes'
 
-    = yield
+    .container
+      = render 'flashes'
+      = yield
 
     = render 'footer'
 
