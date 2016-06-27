@@ -1,57 +1,46 @@
 source 'https://rubygems.org'
 
+gem 'rails', '~> 4.2'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+# views
+gem 'haml-rails'
+gem 'simple_form'
+gem 'meta-tags', require: 'meta_tags'
+gem 'responders', '~> 2.0'
 
-
-# Use SCSS for stylesheets
+# styles
+gem 'bh', github: "buren/bh", branch: "disable-form-builder" # https://github.com/Fullscreen/bh/pull/150
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
+
+# js
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'modernizr-rails'
+
+# api
 gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'apitome'
+gem 'sdoc', '~> 0.4.0', group: :doc # bundle exec rake doc:rails generates the API under doc/api.
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# auth
+gem 'devise', '~> 4.1'
+gem 'devise_invitable'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-instagram'
+gem 'omniauth-twitter'
+gem 'instagram'
+gem 'twitter'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :test do
+  gem 'webmock'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-end
-
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-end
-
-
-group :development do
-  gem 'happy_seed'
-end
-
-gem 'puma'
-gem 'rails_12factor'
-gem 'haml-rails'
-group :development, :test do
   gem 'sqlite3'
   gem 'rspec'
   gem 'rspec-rails'
@@ -69,30 +58,22 @@ group :development, :test do
   gem 'faker'
   gem 'dotenv-rails'
   gem 'rdiscount'
+  gem 'rspec_api_documentation'
+  gem 'jazz_hands', github: 'danrabinowitz/jazz_hands', branch: 'use-newer-version-of-pry'
 end
 
-group :test do
-  gem 'webmock'
+group :development do
+  gem 'web-console', '~> 2.0' # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'spring'
+  gem 'happy_seed'
 end
+
+# server
+gem 'puma'
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
-
-gem 'simple_form'
-gem 'bootstrap-sass'
-gem 'modernizr-rails'
-gem 'meta-tags', require: 'meta_tags'
-gem 'responders', '~> 2.0'
-gem 'bh'
-gem 'devise', '~> 4.1'
-gem 'devise_invitable'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-instagram'
-gem 'instagram'
-gem 'omniauth-twitter'
-gem 'twitter'
-gem 'apitome'
-gem 'rspec_api_documentation', groups: [:development, :test]
-gem 'jazz_hands', github: 'danrabinowitz/jazz_hands', branch: 'use-newer-version-of-pry', groups: [:development, :test]

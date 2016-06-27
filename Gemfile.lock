@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/buren/bh.git
+  revision: ab7bb75b106c67c78e9b2bcdac8b21ec2e83fd3d
+  branch: disable-form-builder
+  specs:
+    bh (1.3.4)
+      actionpack
+      activesupport
+
+GIT
   remote: git://github.com/danrabinowitz/jazz_hands.git
   revision: a65c226f1e93e7451793cfcb2a403e6f5c2eba1d
   branch: use-newer-version-of-pry
@@ -63,9 +72,6 @@ GEM
       execjs
     awesome_print (1.7.0)
     bcrypt (3.1.11)
-    bh (1.3.6)
-      actionpack
-      activesupport
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
@@ -443,7 +449,7 @@ PLATFORMS
 
 DEPENDENCIES
   apitome
-  bh
+  bh!
   bootstrap-sass
   byebug
   capybara
@@ -473,7 +479,7 @@ DEPENDENCIES
   pg
   puma
   quiet_assets
-  rails (= 4.2.6)
+  rails (~> 4.2)
   rails_12factor
   rdiscount
   responders (~> 2.0)
