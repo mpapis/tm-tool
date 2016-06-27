@@ -7,12 +7,12 @@ class Identity < ActiveRecord::Base
     self.accesstoken  = omni.credentials.token,
     self.secrettoken  = omni.credentials.secret
     #self.refreshtoken = omni.credentials.refresh_token
-    #self.name         = omni.info.name
-    #self.email        = omni.info.email    if omni.info.email
-    #self.nickname     = omni.info.nickname
-    #self.image        = omni.info.image
-    #self.phone        = omni.info.phone
-    #self.urls         = (omni.info.urls || "").to_json TODO!
+    self.name         = omni.info.name
+    self.email        = omni.info.email    if omni.info.email
+    self.nickname     = omni.info.nickname
+    self.image        = omni.info.image
+    self.phone        = omni.info.phone
+    self.urls         = omni.info.urls.try(:to_json) #TODO!
     self.user         = yield if user.nil?
     user.update_from_identity(omni, self)
   end

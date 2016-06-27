@@ -26,18 +26,42 @@
 
           = f.submit "Update"
 
-    - if devise_mapping.omniauthable?
+    - resource_class.omniauth_providers.map{|p| [p, resource.identities.where( :provider => p ).first] }.sort_by{|p,i| i.nil?.to_s }.each do |provider, identity|
       .panel.panel-default.only
         .panel-heading
-          Connect your accounts
+          = "#{provider.to_s.titleize}:"
+          - if identity
+            = link_to "Reconnect", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary"
+          - else
+            = link_to "Sign in", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary"
 
         .panel-body
-          %ul
-            - resource_class.omniauth_providers.each do |provider|
-              - if resource.identities.where( :provider => provider ).first
-                %li= link_to "Reconnect with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary"
-              - else
-                %li= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary"
+          - if identity.try(:name)
+            %p
+              Name:
+              = identity.name
+          - if identity.try(:email)
+            %p
+              Email:
+              = link_to identity.email, identity.email
+          - if identity.try(:nickname)
+            %p
+              Nickname:
+              = identity.nickname
+          - if identity.try(:image)
+            %p
+              Image:
+              = link_to(image_tag(identity.image), identity.image)
+
+          - if identity.try(:phone)
+            %p
+              Phone:
+              = identity.phone
+          - if identity.try(:urls)
+            - JSON.parse(identity.urls).each do |name, url|
+              %p
+                = "#{name}:"
+                = link_to url, url
 
     .panel.panel-default.only
 
