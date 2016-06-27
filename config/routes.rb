@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clubs
     scope module: :api, defaults: {format: :json} do
     %w(v1).each do |version|
       namespace version.to_sym do
@@ -19,8 +20,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'omniauth_callbacks',
     registrations:      'users/registrations'
   }
-  root 'setup#index'
-  get '/setup' => 'setup#index'
+  root 'clubs#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

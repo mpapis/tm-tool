@@ -1,0 +1,11 @@
+= simple_form_for(@club, layout: :horizontal) do |f|
+  .form-inputs
+    = f.input :name,      class: 'form-control'
+    = f.input :number,    class: 'form-control'
+    = f.input :location,  class: 'form-control'
+    = f.input :email,     class: 'form-control'
+    = f.input :site,      class: 'form-control'
+    = f.input :telephone, class: 'form-control'
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

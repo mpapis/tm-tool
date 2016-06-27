@@ -1,9 +1,7 @@
 = simple_form_for(@<%= singular_table_name %>, layout: :horizontal) do |f|
-  = f.error_notification
-
   .form-inputs
   <%- attributes.each do |attribute| -%>
-    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>, :class => 'form-control'
+    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>, class: 'form-control'
   <%- end -%>
 
   .form-actions

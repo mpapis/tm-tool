@@ -1,0 +1,22 @@
+.page-header
+  = link_to clubs_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_club_path(@club), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show club
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @club.name
+  %dt Number:
+  %dd= @club.number
+  %dt Location:
+  %dd= @club.location
+  %dt Email:
+  %dd= @club.email
+  %dt Site:
+  %dd= @club.site
+  %dt Telephone:
+  %dd= @club.telephone
